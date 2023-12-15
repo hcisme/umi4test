@@ -1,16 +1,44 @@
-// 运行时配置
+import { RuntimeConfig } from '@umijs/max';
+import { usePrimaryColor } from './hooks';
 
-// 全局初始化数据配置，用于 Layout 用户信息和权限初始化
-// 更多信息见文档：https://next.umijs.org/docs/api/runtime-config#getinitialstate
+// 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState(): Promise<{ name: string }> {
   return { name: '@umijs/max' };
 }
 
-// export const layout = () => {
-//   return {
-//     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
-//     menu: {
-//       locale: false,
+export const layout: RuntimeConfig['layout'] = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const primaryColor = usePrimaryColor();
+
+  return {
+    title: false,
+    menu: {
+      locale: false,
+    },
+    layout: 'mix',
+    splitMenus: true,
+    rightContentRender: false,
+    collapsedButtonRender: false,
+    token: {
+      header: {
+        colorTextMenuSelected: primaryColor,
+        colorTextMenuActive: primaryColor,
+      },
+      sider: {
+        colorTextMenuSelected: primaryColor,
+        colorTextMenuActive: primaryColor,
+      },
+    },
+  };
+};
+
+// export const antd: RuntimeAntdConfig = (memo: any) => {
+//   memo.theme ??= {
+//     token: {
+//       borderRadius: 8,
 //     },
 //   };
+//   // memo.theme.algorithm = theme.darkAlgorithm; // 配置 antd5 的预设 dark 算法
+
+//   return memo;
 // };
