@@ -8,7 +8,7 @@ export async function getInitialState(): Promise<{ name: string }> {
 
 export const layout: RuntimeConfig['layout'] = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const primaryColor = usePrimaryColor();
+  const { primaryColor, primaryHoverColor } = usePrimaryColor();
 
   return {
     title: false,
@@ -19,26 +19,22 @@ export const layout: RuntimeConfig['layout'] = () => {
     splitMenus: true,
     rightContentRender: false,
     collapsedButtonRender: false,
+    siderWidth: 160,
     token: {
       header: {
+        colorBgMenuItemHover: primaryHoverColor,
+        colorBgMenuItemSelected: primaryHoverColor,
         colorTextMenuSelected: primaryColor,
+        colorTextMenu: 'black',
         colorTextMenuActive: primaryColor,
       },
       sider: {
+        colorBgMenuItemHover: primaryHoverColor,
+        colorBgMenuItemSelected: primaryHoverColor,
         colorTextMenuSelected: primaryColor,
+        colorTextMenu: 'black',
         colorTextMenuActive: primaryColor,
       },
     },
   };
 };
-
-// export const antd: RuntimeAntdConfig = (memo: any) => {
-//   memo.theme ??= {
-//     token: {
-//       borderRadius: 8,
-//     },
-//   };
-//   // memo.theme.algorithm = theme.darkAlgorithm; // 配置 antd5 的预设 dark 算法
-
-//   return memo;
-// };

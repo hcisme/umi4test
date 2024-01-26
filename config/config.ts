@@ -3,21 +3,24 @@ import routes from './routes';
 
 export default defineConfig({
   antd: {
-    configProvider: {},
-    // appConfig: {},
-  },
-  theme: {
-    /**
-     * 定制主题
-     * ~antd/lib/style/themes/default.less
-     */
-    'primary-color': '#08979C',
-
-    // dark theme
-    // 'menu-dark-color': '#ffffff59',
-    'disabled-color': 'rgba(0, 0, 0, .45)', // 失效色
-    'select-multiple-item-disabled-color': 'rgba(0, 0, 0, 0.45)',
-    'disabled-bg': '#f5f5f5b3',
+    configProvider: {
+      theme: {
+        components: {
+          Menu: {
+            itemBorderRadius: 0,
+            subMenuItemBorderRadius: 0,
+            itemHoverColor: '#1890ff',
+            itemSelectedColor: '#1890ff',
+            itemSelectedBg: '#e6f7ff',
+            activeBarWidth: 3,
+            activeBarHeight: 3,
+            activeBarBorderWidth: 3,
+            itemMarginInline: 0,
+            itemHoverBg: 'transparent',
+          },
+        },
+      },
+    },
   },
   access: {},
   model: {},

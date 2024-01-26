@@ -11,15 +11,25 @@ const routes: IConfigFromPlugins['routes'] = [
     component: './Home',
   },
   {
-    name: '权限演示',
-    path: '/access',
-    component: './Access',
-    access: 'canSeeAdmin',
-  },
-  {
-    name: ' CRUD 示例',
-    path: '/table',
-    component: './Table',
+    name: '表单',
+    path: '/form',
+    routes: [
+      {
+        path: '/form',
+        redirect: '/form/tabform',
+      },
+      {
+        name: 'Tab表单',
+        path: '/form/tabform',
+        component: './Form/TabForm',
+      },
+      {
+        name: '权限演示',
+        path: '/form/access',
+        component: './Form/Access',
+        access: 'canSeeAdmin',
+      },
+    ],
   },
 ];
 

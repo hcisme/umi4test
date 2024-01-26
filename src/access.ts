@@ -1,8 +1,5 @@
-export default (initialState: any) => {
-  const canSeeAdmin = !!(
-    initialState && initialState.name !== 'dontHaveAccess'
-  );
+export default () => {
   return {
-    canSeeAdmin,
+    canSeeAdmin: true,
   };
 };

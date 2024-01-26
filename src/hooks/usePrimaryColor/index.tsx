@@ -2,11 +2,11 @@ import { useToken } from '@ant-design/pro-components';
 
 const Index = () => {
   const {
-    token: { 'cyan-8': primaryColor },
+    token: { 'blue-6': primaryColor, 'blue-1': primaryHoverColor },
     // eslint-disable-next-line react-hooks/rules-of-hooks
   } = useToken();
 
-  return primaryColor;
+  return { primaryColor, primaryHoverColor };
 };
 
 export default Index;
