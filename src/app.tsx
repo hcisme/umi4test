@@ -1,6 +1,6 @@
 import { RuntimeConfig } from '@umijs/max';
+import PageContainer from './components/PageContainer';
 import { usePrimaryColor } from './hooks';
-import PageContainer from './pages/TabContainer';
 
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState(): Promise<{ name: string }> {
