@@ -1,5 +1,6 @@
 import { RuntimeConfig } from '@umijs/max';
 import { usePrimaryColor } from './hooks';
+import PageContainer from './pages/TabContainer';
 
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState(): Promise<{ name: string }> {
@@ -35,6 +36,9 @@ export const layout: RuntimeConfig['layout'] = () => {
         colorTextMenu: 'black',
         colorTextMenuActive: primaryColor,
       },
+    },
+    childrenRender: (dom) => {
+      return <PageContainer>{dom}</PageContainer>;
     },
   };
 };

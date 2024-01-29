@@ -24,10 +24,9 @@ const routes: IConfigFromPlugins['routes'] = [
         component: './Form/TabForm',
       },
       {
-        name: '权限演示',
+        name: 'Table-Form.List',
         path: '/form/access',
         component: './Form/Access',
-        access: 'canSeeAdmin',
       },
     ],
   },
