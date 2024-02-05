@@ -28,5 +28,12 @@ export default defineConfig({
   request: {},
   layout: {},
   routes,
+  proxy: {
+    '/api': {
+      target: 'http://127.0.0.1:1000',
+      changeOrigin: true,
+      pathRewrite: { '^/api': '' },
+    },
+  },
   npmClient: 'npm',
 });

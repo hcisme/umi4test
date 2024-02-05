@@ -1,4 +1,6 @@
 import { DndContext, DragEndEvent, DragStartEvent } from '@dnd-kit/core';
+import { request } from '@umijs/max';
+import { Button, Space } from 'antd';
 import { uniqBy } from 'lodash';
 import { ReactNode, useEffect, useState } from 'react';
 import Draggable from './Draggable';
@@ -101,6 +103,24 @@ export default function Index() {
           </Droppable>
         ))}
       </div>
+
+      <Space>
+        <Button
+          onClick={() => {
+            request('/api');
+          }}
+        >
+          加载
+        </Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            request('/api/login');
+          }}
+        >
+          Login
+        </Button>
+      </Space>
     </DndContext>
   );
 }

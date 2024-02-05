@@ -18,7 +18,11 @@ const Index = (props: IProps) => {
   const { pathname } = location;
 
   useEffect(() => {
-    setActiveKey(pathname);
+    if (pathname === '/') {
+      navigate('/home');
+    } else {
+      setActiveKey(pathname);
+    }
 
     if (
       domList.every((item) => item.key !== pathname) &&
